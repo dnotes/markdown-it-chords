@@ -1,0 +1,38 @@
+Basic support
+.
+[C]Doe, a deer, a female deer\
+[Dm]Ray, a drop of golden sun
+.
+<p><span class="chord"><span class="inner"><i class="name">C</i></span></span>Doe, a deer, a female deer<br>
+<span class="chord"><span class="inner"><i class="name">Dm</i></span></span>Ray, a drop of golden sun</p>
+.
+
+Flats and Sharps
+.
+[Eb]May, a possi[D#]bility
+.
+<p><span class="chord"><span class="inner"><i class="name">E♭</i></span></span>May, a possi<span class="chord"><span class="inner"><i class="name">D♯</i></span></span>bility</p>
+.
+
+Bass notes
+.
+[D/F#]Fee, the price you pay to run
+.
+<p><span class="chord"><span class="inner"><i class="name">D/F♯</i></span></span>Fee, the price you pay to run</p>
+.
+
+Color chords
+.
+[CΔ913]So, — I'd [C6]like to see Bra[Fmaj9]zil . . . . .[F6(9)]\
+[E-7b13]La, — I'd [CM7sus2]really like to [E9]go . . .[E7b9]\
+[AmΔ7/9]Tea, — I'd [A-7]sit and drink so [D#o]slow
+.
+.
+
+Diagrams
+.
+That will [Dø7|x5656x]bring us back to Do
+.
+<p>That will bring us back to Do</p>
+.
+

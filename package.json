@@ -1,0 +1,31 @@
+{
+  "name": "markdown-it-chords",
+  "version": "1.0.0",
+  "description": "Add support for lyric sheet chords in markdown.",
+  "main": "index.js",
+  "scripts": {
+    "build": "make build",
+    "coverage": "yarn test && nyc report -r text-lcov | coveralls",
+    "lint": "eslint .",
+    "pub": "yarn lint && yarn test && make build && make publish",
+    "test": "nyc --check-coverage --lines 100 mocha"
+  },
+  "keywords": [
+    "markdown-it",
+    "markdown"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "eslint": "^5.16.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-testgen": "^0.1.5",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "terser": "^3.17.0"
+  },
+  "dependencies": {
+    "coveralls": "^3.0.3"
+  }
+}
