@@ -1,18 +1,18 @@
 span.chord {
-	width: 0;
+	padding-top: 4px;
 	display: inline-block;
 	vertical-align: bottom;
 	position: relative;
 	user-select: none;
-	height: calc(1em + 35px);
-	min-height: calc(1em + 35px);
+	height: calc(1em + 45px);
+	min-height: calc(1em + 45px);
 	font-size: 70%;
 }
 span.chord .inner {
 	position: absolute;
 	display: block;
 	left: 0;
-	padding-top: 8px;
+	padding-top: 14px;
 }
 span.chord i {
 	font-style: normal;
@@ -22,13 +22,13 @@ span.chord i {
 span.chord i.diagram {
 	font: 100 9px Courier;
 	line-height: 5px;
-	position: relative;
+	position: absolute;
+	top: 0;
 	display: none;
-	transform:translate(4px,-100%);
 }
 span.chord i.diagram[dir="rtl"] { transform:translate(9px,-100%) }
 span.chord .inner:hover i.diagram,
 span.chord.diagram i.diagram,
 span.chord i.diagram.show { 
-	display: block;
+	display: inline-block;
 }
