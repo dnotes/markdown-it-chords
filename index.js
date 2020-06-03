@@ -7,21 +7,16 @@ const CHORD_REGEX = /^\[([A-G])([♭♯]*)(M|Δ|[Mm]aj|m|[Mm]in|‑|[Dd]im|°|ø
 const EXTENDED_REGEX = /(?:[\(\/,1]*(?:[‑+Δ°♭♯]|[Mm]aj|[Mm]in|[Ss]usp?)?[02-9]+\)?)*/
 const DIAGRAM_REGEX = /^\[(?:[XxOo\d,\(\)]{3,})\]/
 
-const fret = '|'
-const str = '&#882;'
-const sp = '&nbsp;'
-const finger = '&#9679;'
-
 function chords(state, silent) {
 
 	let tail, 
-			chordMatch, // the initial match for the entire chord string
-			chordSplit, // the chord text split into chord name and diagram
-			chord, 			// the grouped match array for the chord name
-			diagram, 		// the match for the diagram part of the chord string
-			extended, 	// the array of extended color values
-			token, 			// placeholder for the token
-			// note, half, color, num, extended, bass, diagram,
+			chordMatch, 	// the initial match for the entire chord string
+			chordSplit, 	// the chord text split into chord name and diagram
+			chord, 				// the grouped match array for the chord name
+			diagram, 			// the match for the diagram part of the chord string
+			extended, 		// the array of extended color values
+			token, 				// placeholder for the token
+			diagramClass,	// the classes for the diagram section of the chord
 			pos = state.pos // the position in the state
 
 	if (state.src.charCodeAt(pos) !== 0x5B/* [ */) return false
@@ -33,12 +28,12 @@ function chords(state, silent) {
 	chordMatch = tail.match(CHORD_TEST)
 	if (chordMatch) {
 		chordSplit = chordMatch[0].split('|')
-		chord = chordSplit[0].replace(/b/g, '♭').replace(/#/g, '♯').replace(/o/g, '°').replace(/[-–]/g, '‑').match(CHORD_REGEX)
-		diagram = chordSplit[1]
+		chord = (chordSplit[0] + ']').replace(/b/g, '♭').replace(/#/g, '♯').replace(/o/g, '°').replace(/[-–]/g, '‑').match(CHORD_REGEX)
+		diagram = parseDiagram(chordSplit[1])
 	}
 	else {
-		chordMatch = tail.match(DIAGRAM_REGEX)
-		diagram = parseDiagram(chordMatch)
+		chordMatch = (tail.match(DIAGRAM_REGEX) || [''])
+		diagram = parseDiagram(chordMatch[0])
 	}
 
 	if (!chord && !diagram) return false
@@ -101,12 +96,17 @@ function chords(state, silent) {
 		} // end chord
 	
 		// diagram
-		if (diagram) {
+		if (diagram && diagram.length) {
+			diagramClass = chord ? 'diagram' : 'diagram show'
 			token = state.push('chord_i_open', 'i', 1)
 			token.attrs = [['class','diagram']]
 		
-			token = state.push('text', '', 0)
-			token.content = diagram
+			// render each line and then a <br> tag
+			diagram.forEach(line => {
+				token = state.push('text', '', 0)
+				token.content = line
+				state.push('br', 'br', 0)
+			})
 		
 			token = state.push('chord_i_close', 'i', -1)
 		} // end diagram
@@ -122,15 +122,81 @@ function chords(state, silent) {
 }
 
 function parseDiagram(diagram) {
-	return false
 	if (!diagram) return false
-	if (/,/.test(diagram)) {
-		diagram = diagram.split(',')
+
+	const fr = '|',																// pipe
+				str = String.fromCharCode(0x0336),			// combining long stroke overlay
+				sp = String.fromCharCode(0xa0),					// non-breaking space
+				finger = String.fromCharCode(0x25cf),		// black circle
+				optional = String.fromCharCode(0x25cb)	// white circle
+		
+	let min = 99, // minimum used fret
+			max = 0,	// maximum used fret
+			fret, 		// fret number on which to place character
+			char, 		// character to place on fret
+			nut='',		// the beginning of a line
+			line,			// a single line
+			lines=[] // the rendered lines
+
+	
+
+	// Remove wrappers and separators
+	diagram = diagram.replace(/[\[\]|]/g,'').replace(/[Oo]/g, '0')
+
+	// Split diagram (commas are used for frets beyond 9)
+	diagram = /,/.test(diagram) ? diagram.split(',') : diagram.match(/\(?[XxOo\d]\)?/g)
+
+	// Reverse the diagram
+	diagram.reverse()
+
+	// Gather raw numbers and get minimum fret
+	diagram = diagram.map(v => {
+
+		// get the fret number
+		fret = parseInt(v.replace(/[\(\)]/g,''))
+
+		// check for min and max
+		if (fret && fret < min) min = fret
+		if (fret && fret > max) max = fret
+		
+		// get the proper character
+		if (isNaN(fret)) char = 'x'
+		else if (!fret) char = sp
+		else if (/\(/.test(v)) char = optional
+		else char = finger
+
+		// return the full data
+		return {
+			fret: fret || 0,
+			char: char
+		}
+	})
+
+	// don't capo where it is not necessary
+	if (max <= 4) min = 0
+
+	// render fret number and strings, if needed
+	if (min) {
+		lines.push(min)
+		nut = str
 	}
-	else {
-		diagram = diagram.split()
-	}
-	return false
+
+	// render each position of the diagram
+	diagram.forEach(o => {
+		// initial space or x
+		line = o.char === 'x' ? 'x' : sp
+		// first fret of line
+		line += `${fr}${nut}`
+		for (let i=min; i<=max; i++) {
+			// character in position
+			line += i === o.fret ? o.char : sp
+			// string and fret after
+			line += `${str}${fr}${str}`
+		}
+		lines.push(line)
+	})
+
+	return lines
 }
 
 module.exports = function plugin(md) {
