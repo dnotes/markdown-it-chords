@@ -180,7 +180,7 @@ function parseDiagram(diagram) {
 
 	// render fret number and strings, if needed
 	if (min) {
-		lines.push(`${min}`)
+		lines.push(`${sp}${min}`)
 		nut = str
 	}
 
