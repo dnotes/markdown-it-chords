@@ -50,6 +50,7 @@ function chords(state, silent) {
 		token = state.push('chord_inner_open', 'span', 1)
 		token.attrs = [['class','inner']]
 	
+		// chord
 		if (chord) {
 			extended = chord[5] ? chord[5].match(EXTENDED_REGEX) : false
 			token = state.push('chord_i_open', 'i', 1)
@@ -97,9 +98,9 @@ function chords(state, silent) {
 			}
 				
 			token = state.push('chord_i_close', 'i', -1)
-		}
+		} // end chord
 	
-
+		// diagram
 		if (diagram) {
 			token = state.push('chord_i_open', 'i', 1)
 			token.attrs = [['class','diagram']]
@@ -108,7 +109,7 @@ function chords(state, silent) {
 			token.content = diagram
 		
 			token = state.push('chord_i_close', 'i', -1)
-		}
+		} // end diagram
 	
 		token = state.push('chord_inner_close', 'span', -1)
 		token = state.push('chord_close', 'span', -1)
