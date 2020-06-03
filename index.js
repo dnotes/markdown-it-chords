@@ -193,9 +193,9 @@ function parseDiagram(diagram) {
 		line += `${frets ? fr : sp}${nut}`
 		for (let i=min; i<=max; i++) {
 			// character in position
-			line += i === o.fret ? o.char : sp
+			line += i === o.fret ? o.char : `${sp}${str}`
 			// string and fret after
-			line += `${str}${frets ? fr : sp}${str}`
+			line += `${frets ? fr : sp}${str}`
 		}
 		lines.push(`${line}`)
 	})
