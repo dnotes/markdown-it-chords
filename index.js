@@ -173,8 +173,10 @@ function parseDiagram(diagram) {
 		}
 	})
 
-	// don't capo where it is not necessary
+	// don't capo if a chord is within the first four frets
 	if (max <= 4) min = 0
+	// make sure there are at least three frets
+	if (max - min < 2) max++
 
 	// render fret number and strings, if needed
 	if (min) {
