@@ -21,10 +21,10 @@ ${styles}
 </style>
 
 <body>
-</body>
 
 ${readme}
 
+</body>
 </html>
 `
 
