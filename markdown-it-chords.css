@@ -22,11 +22,13 @@ span.chord i {
 span.chord i.diagram {
 	font: 100 9px Courier;
 	line-height: 5px;
-	opacity: .5;
 	position: relative;
 	display: none;
 	transform:translate(4px,-100%);
 }
 span.chord i.diagram[dir="rtl"] { transform:translate(9px,-100%) }
 span.chord .inner:hover i.diagram,
-span.chord i.diagram.show { display: block }
+span.chord.diagram i.diagram,
+span.chord i.diagram.show { 
+	display: block;
+}

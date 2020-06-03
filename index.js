@@ -16,7 +16,7 @@ function chords(state, silent) {
 			diagram, 			// the match for the diagram part of the chord string
 			extended, 		// the array of extended color values
 			token, 				// placeholder for the token
-			diagramClass,	// the classes for the diagram section of the chord
+			classes,			// the classes for the chord
 			pos = state.pos // the position in the state
 
 	if (state.src.charCodeAt(pos) !== 0x5B/* [ */) return false
@@ -37,10 +37,11 @@ function chords(state, silent) {
 	}
 
 	if (!chord && !diagram) return false
+	classes = chord ? 'chord' : 'chord diagram'
 
 	if (!silent) {
 		token = state.push('chord_open', 'span', 1)
-		token.attrs = [['class','chord']]
+		token.attrs = [['class',classes]]
 		
 		token = state.push('chord_inner_open', 'span', 1)
 		token.attrs = [['class','inner']]
@@ -97,7 +98,6 @@ function chords(state, silent) {
 	
 		// diagram
 		if (diagram && diagram.length) {
-			diagramClass = chord ? 'diagram' : 'diagram show'
 			token = state.push('chord_i_open', 'i', 1)
 			token.attrs = [['class','diagram']]
 		
