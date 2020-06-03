@@ -133,6 +133,7 @@ function parseDiagram(diagram) {
 	let min = 99, // minimum used fret
 			max = 0,	// maximum used fret
 			fret, 		// fret number on which to place character
+			frets,		// whether to show the frets for a line (first and last lines should not)
 			char, 		// character to place on fret
 			nut='',		// the beginning of a line
 			line,			// a single line
@@ -177,23 +178,24 @@ function parseDiagram(diagram) {
 
 	// render fret number and strings, if needed
 	if (min) {
-		lines.push(min)
+		lines.push(`${min}`)
 		nut = str
 	}
 
 	// render each position of the diagram
-	diagram.forEach(o => {
+	diagram.forEach((o,idx) => {
+		frets = idx && (idx < (diagram.length -1))
 		// initial space or x
 		line = o.char === 'x' ? 'x' : sp
 		// first fret of line
-		line += `${fr}${nut}`
+		line += `${frets ? fr : sp}${nut}`
 		for (let i=min; i<=max; i++) {
 			// character in position
 			line += i === o.fret ? o.char : sp
 			// string and fret after
-			line += `${str}${fr}${str}`
+			line += `${str}${frets ? fr : sp}${str}`
 		}
-		lines.push(line)
+		lines.push(`${line}`)
 	})
 
 	return lines
