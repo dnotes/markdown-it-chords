@@ -1,7 +1,15 @@
 language: node_js
 node_js:
- - node
- - lts/*
+- node
+- lts/*
 script: yarn lint && yarn coverage
 sudo: false
-# deploy: run `travis setup npm`
+deploy:
+  provider: npm
+  email: davidhuntatwork@gmail.com
+  api_key:
+    secure: PLrCKuvNLBQrXUrqvOD5QfquXmoji8wZ20yWIbinmdo98vgImQB2pXzQ2BdGtnIm4dntQHiekoLWuIpWCKzvngwTgwK2zh/JoUuVWkADSWruoPWKYGSNL0NXwjP0xDyn/JwfWRKv645ZmVGVa6rAvj/7ln1tJu5ZIN9CbEs8O3cea0b2ggb4MqEhgmJTvipaRcxPEohPziErbPKeHf5rdjGYogGjuDi4oectE/kCO/8WVsJbBW87zkGIUmrIP99UCAjne/Adt0XGgTHXt6I4qxWtCw5baqMXLXww5ccJ3gAiBM+/IhucRjfdTIa/LAFd4fh6b3iLaf72/Ge5w5Q30zQVFQvJPY6IsdfiRLViLfiU6n110EnPaJuNsqrtUH4FPG2Jys4rjGO7nuGbXmitvsvjxnJBFgoD4eOz9thIb0Smg1mn0DdolSnFRTBLQpAmlM3gQmUZpoqa5KK4Wl+l3EyvipZOFwcbznjRK1OAS25Cg3sJcMUPQSCOaDN0Y1G6Cu04Q9Yi6bOarffdAtfGqt4gcThS1e6SmE+RUVtoORPsHaAAGVrObrwS+a/axEcotTQ4VvtDqi9WeZIbttW8MEuzjE8abJll2hmP1BNU3Lr7F4cvo+eHkDYlg3cXuVJjLOYKlyLrM8rgd+F2GZCmpE/gOLH60NnSu8MyfwtRq68=
+  on:
+    tags: true
+    repo: dnotes/markdown-it-chords
+  skip_cleanup: 'true'
