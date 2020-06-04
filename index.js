@@ -130,7 +130,9 @@ function parseDiagram(diagram) {
 	if (!diagram) return false
 
 	const fr = '|',																// pipe
+				nt = String.fromCharCode(0x2016),				// double pipe
 				str = String.fromCharCode(0x0336),			// combining long stroke overlay
+				str0 = String.fromCharCode(0x0335),			// combining short stroke overlay
 				sp = String.fromCharCode(0xa0),					// non-breaking space
 				finger = String.fromCharCode(0x25cf),		// black circle
 				optional = String.fromCharCode(0x25cb)	// white circle
@@ -140,7 +142,7 @@ function parseDiagram(diagram) {
 			fret, 			// fret number on which to place character
 			frets,			// whether to show the frets for a line (first and last lines should not)
 			char, 			// character to place on fret
-			nut = '',		// the beginning of a line
+			nut = str0,		// the beginning of a line
 			line,				// a single line
 			lines = [] 	// the rendered lines
 
@@ -186,7 +188,7 @@ function parseDiagram(diagram) {
 	// render fret number and strings, if needed
 	/* istanbul ignore else */
 	if (min > 1) {
-		lines.push(`${sp}${min}`)
+		lines.push(`${sp}${min}fr`)
 		nut = str
 	}
 
@@ -196,7 +198,7 @@ function parseDiagram(diagram) {
 		// initial space or x
 		line = o.char === 'x' ? 'x' : sp
 		// first fret of line
-		line += `${frets ? fr : sp}${nut}`
+		line += `${frets ? nt : sp}${nut}`
 		for (let i = min; i <= max; i++) {
 			// character in position
 			line += i === o.fret ? o.char : `${sp}${str}`
