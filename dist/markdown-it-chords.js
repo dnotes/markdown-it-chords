@@ -1,4 +1,4 @@
-/*! markdown-it-chords 1.0.0  @license MIT */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.markdownItChords = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+/*! markdown-it-chords 1.0.1  @license MIT */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.markdownItChords = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict'
 
 //                      note half     color                                                               num           extended                                                      bass               diagram
@@ -131,7 +131,9 @@ function parseDiagram(diagram) {
 	if (!diagram) return false
 
 	const fr = '|',																// pipe
+				nt = String.fromCharCode(0x2016),				// double pipe
 				str = String.fromCharCode(0x0336),			// combining long stroke overlay
+				str0 = String.fromCharCode(0x0335),			// combining short stroke overlay
 				sp = String.fromCharCode(0xa0),					// non-breaking space
 				finger = String.fromCharCode(0x25cf),		// black circle
 				optional = String.fromCharCode(0x25cb)	// white circle
@@ -141,7 +143,7 @@ function parseDiagram(diagram) {
 			fret, 			// fret number on which to place character
 			frets,			// whether to show the frets for a line (first and last lines should not)
 			char, 			// character to place on fret
-			nut = '',		// the beginning of a line
+			nut = str0,		// the beginning of a line
 			line,				// a single line
 			lines = [] 	// the rendered lines
 
@@ -187,7 +189,7 @@ function parseDiagram(diagram) {
 	// render fret number and strings, if needed
 	/* istanbul ignore else */
 	if (min > 1) {
-		lines.push(`${sp}${min}`)
+		lines.push(`${sp}${min}fr`)
 		nut = str
 	}
 
@@ -197,7 +199,7 @@ function parseDiagram(diagram) {
 		// initial space or x
 		line = o.char === 'x' ? 'x' : sp
 		// first fret of line
-		line += `${frets ? fr : sp}${nut}`
+		line += `${frets ? nt : sp}${nut}`
 		for (let i = min; i <= max; i++) {
 			// character in position
 			line += i === o.fret ? o.char : `${sp}${str}`
