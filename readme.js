@@ -40,6 +40,9 @@ let output = `<html>
 </head>
 <style>
 ${styles}
+.chord {
+	font-family: Didot, "Helvetica Neue", serif;
+}
 body {
 	padding: 50px;
 	font-size: 14pt;
