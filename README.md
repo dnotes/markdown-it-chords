@@ -18,7 +18,7 @@ md.render('[C]La [F]la [G]la [C]la')
 ## Example and Syntax
 
 
-[C]Doe, a deer, a female deer\
+[C]Do, a deer, a female deer\
 [Dm]Ray, a drop of golden sun\
 [Eb]May, a possi[D#]bility\
 [D/F#]Fee, the price you pay to run
