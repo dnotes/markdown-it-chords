@@ -7,7 +7,7 @@ const md = require('markdown-it')('commonmark')
 md.use(require('.'))
 
 let readme = fs.readFileSync('./README.md', { encoding: 'utf8' }).split('<!--song-->\n')
-let song = readme.splice(1,1)[0]
+let song = readme.splice(1, 1)[0]
 let styles = fs.readFileSync('./markdown-it-chords.css', { encoding: 'utf8' })
 
 let output = `<html>
