@@ -1,34 +1,39 @@
-span.chord {
-	padding-top: 4px;
+:root {
+	--chord-diagram-font-px: 10px;
+}
+.chord {
 	display: inline-block;
-	vertical-align: bottom;
 	position: relative;
 	user-select: none;
-	height: calc(1em + 45px);
-	min-height: calc(1em + 45px);
+	height: 3.2em;
 	font-size: 70%;
 }
-span.chord .inner {
+.chord.diagram {
+	height: calc(1.5em + (3.5 * var(--chord-diagram-font-px)))
+}
+.chord .inner {
 	position: absolute;
 	display: block;
 	left: 0;
-	padding-top: 14px;
+	bottom: 1.3em;
 }
-span.chord i {
+.chord i {
 	font-style: normal;
 	display: inline-block;
-	vertical-align: bottom;
 }
-span.chord i.diagram {
-	font: 100 9px Courier;
-	line-height: 5px;
+.chord i.diagram {
+	font: 100 var(--chord-diagram-font-px) Courier;
+	line-height: .5em;
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	display: none;
 }
-span.chord i.diagram[dir="rtl"] { transform:translate(9px,-100%) }
-span.chord .inner:hover i.diagram,
-span.chord.diagram i.diagram,
-span.chord i.diagram.show { 
+.chord .inner:hover i.diagram,
+.chord.diagram i.diagram,
+.chord i.diagram.show {
 	display: inline-block;
+}
+.chord:not(.diagram) .inner:hover i.diagram {
+	background: white;
+	z-index: 5;
 }
