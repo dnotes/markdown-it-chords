@@ -36,6 +36,8 @@ ${styles}
 body {
 	padding:50px;
 	font-size:16pt;
+	max-width: 1900px;
+	margin: 0 auto;
 }
 #sandbox div,
 #sandbox textarea {
@@ -46,7 +48,18 @@ body {
 	box-sizing: border-box;
 	padding: 10px;
 }
-.clearfix:after {
+code {
+	background: #eee;
+	font-size: 75%;
+}
+pre {
+	background: #eee;
+	padding: 10px 10px 0;
+	max-width: 100%:
+	overflow: scroll;
+	display: inline-block;
+}
+.clearfix:after, pre:after {
 	content: "";
 	display: table;
 	clear: both;
