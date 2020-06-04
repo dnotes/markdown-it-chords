@@ -1,5 +1,5 @@
 :root {
-	--chord-diagram-font-px: 10px;
+	--chord-diagram-font-size: 10px;
 }
 .chord {
 	display: inline-block;
@@ -9,7 +9,7 @@
 	font-size: 70%;
 }
 .chord.diagram {
-	height: calc(1.5em + (3.5 * var(--chord-diagram-font-px)))
+	height: calc(1.5em + (3.5 * var(--chord-diagram-font-size)))
 }
 .chord .inner {
 	position: absolute;
@@ -22,7 +22,7 @@
 	display: inline-block;
 }
 .chord i.diagram {
-	font: 100 var(--chord-diagram-font-px) Courier;
+	font: 100 var(--chord-diagram-font-size) Courier;
 	line-height: .5em;
 	position: absolute;
 	bottom: 0;

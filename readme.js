@@ -24,18 +24,25 @@ let output = `<html>
 		const md = window.markdownit().use(window.markdownItChords)
 		$(function() {
 			$('textarea#markdown').keyup(function() {
-				var text = $(this).val()
-				$('#preview').html(md.render(text))
+				$('#preview').html(md.render($(this).val()))
 			})
-			$('#preview').html()
+			$('#handed').change(function() {
+				$('.chord i.diagram').attr('dir', $(this).val())
+			})
+			$('#chord-diagram-font-size').on('input', function() {
+				$(':root').css('--chord-diagram-font-size', $(this).val() + 'px')
+			})
+			$('#song-font-size').on('input', function() {
+				$('#preview').css('font-size', $(this).val() + 'pt')
+			})
 		})
 	</script>
 </head>
 <style>
 ${styles}
 body {
-	padding:50px;
-	font-size:16pt;
+	padding: 50px;
+	font-size: 14pt;
 	max-width: 1900px;
 	margin: 0 auto;
 }
@@ -55,7 +62,7 @@ code {
 pre {
 	background: #eee;
 	padding: 10px 10px 0;
-	max-width: 100%:
+	max-width: 100%;
 	overflow: scroll;
 	display: inline-block;
 }
@@ -64,12 +71,31 @@ pre {
 	display: table;
 	clear: both;
 }
+#controls {
+	background: lightgray;
+	padding: 10px;
+}
+#controls select,
+#controls input {
+	vertical-align: middle;
+}
 </style>
 
 <body>
 
 ${md.render(readme[0])}
 
+<div id="controls">
+	<label for="handed">Playing hand:</label>
+	<select name="handed" id="handed">
+		<option value="ltr" selected="selected">right-handed</option>
+		<option value="rtl">left-handed</option>
+	</select>
+	<label for="song-font-size">Song font size:</label>
+	<input type="range" min="10" max="24" value="16" class="slider" name="song-font-size" id="song-font-size">
+	<label for="chord-diagram-font-size">Diagram size:</label>
+	<input type="range" min="5" max="24" value="10" class="slider" name="chord-diagram-font-size" id="chord-diagram-font-size">
+</div>
 <div id="sandbox" class="clearfix">
 	<textarea name="markdown" id="markdown" rows="30">${song}</textarea>
 	<div id="preview">${md.render(song)}</div>
