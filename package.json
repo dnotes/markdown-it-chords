@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-chords",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add support for lyric sheet chords in markdown.",
   "main": "index.js",
   "scripts": {
@@ -15,10 +15,11 @@
     "markdown-it",
     "markdown"
   ],
-  "author": "",
+  "author": "David Hunt",
   "license": "MIT",
   "devDependencies": {
     "browserify": "^16.2.3",
+    "coveralls": "^3.1.0",
     "eslint": "^5.16.0",
     "markdown-it": "^8.4.2",
     "markdown-it-testgen": "^0.1.5",
@@ -26,7 +27,17 @@
     "nyc": "^14.1.1",
     "terser": "^3.17.0"
   },
-  "dependencies": {
-    "coveralls": "^3.0.3"
-  }
+  "dependencies": {},
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnotes/markdown-it-chords.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dnotes/markdown-it-chords/issues"
+  },
+  "homepage": "https://dnotes.github.io/markdown-it-chords"
 }
