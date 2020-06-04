@@ -10,7 +10,7 @@ const DIAGRAM_REGEX = /^\[(?:[XxOo\d,\(\)]{3,})\]/
 
 function chords(state, silent) {
 
-	let tail, 
+	let tail,
 			chordMatch, 	// the initial match for the entire chord string
 			chordSplit, 	// the chord text split into chord name and diagram
 			chord, 				// the grouped match array for the chord name
@@ -45,17 +45,17 @@ function chords(state, silent) {
 	/* istanbul ignore else */
 	if (!silent) {
 		token = state.push('chord_open', 'span', 1)
-		token.attrs = [['class',classes]]
-		
+		token.attrs = [['class', classes]]
+
 		token = state.push('chord_inner_open', 'span', 1)
-		token.attrs = [['class','inner']]
-	
+		token.attrs = [['class', 'inner']]
+
 		// chord
 		if (chord) {
 			extended = chord[5] ? chord[5].match(EXTENDED_REGEX) : false
 			token = state.push('chord_i_open', 'i', 1)
-			token.attrs = [['class','name']]
-		
+			token.attrs = [['class', 'name']]
+
 			token = state.push('text', '', 0)
 
 			// note
@@ -84,44 +84,46 @@ function chords(state, silent) {
 			}
 
 			// extended
-			if (extended) extended.forEach(v => {
-				state.push('sup_open', 'sup', 1)
-				token = state.push('text', '', 0)
-				token.content = v
-				state.push('sup_close', 'sup', -1)
-			})
+			if (extended) {
+				extended.forEach(v => {
+					state.push('sup_open', 'sup', 1)
+					token = state.push('text', '', 0)
+					token.content = v
+					state.push('sup_close', 'sup', -1)
+				})
+			}
 
 			// bass
 			if (chord[6]) {
 				token = state.push('text', '', 0)
 				token.content = chord[6]
 			}
-				
+
 			token = state.push('chord_i_close', 'i', -1)
 		} // end chord
-	
+
 		// diagram
 		if (diagram && diagram.length) {
 			token = state.push('chord_i_open', 'i', 1)
-			token.attrs = [['class','diagram']]
-		
+			token.attrs = [['class', 'diagram']]
+
 			// render each line and then a <br> tag
 			diagram.forEach(line => {
 				token = state.push('text', '', 0)
 				token.content = line
 				state.push('br', 'br', 0)
 			})
-		
+
 			token = state.push('chord_i_close', 'i', -1)
 		} // end diagram
-	
+
 		token = state.push('chord_inner_close', 'span', -1)
 		token = state.push('chord_close', 'span', -1)
-	
+
 	}
 
 	state.pos += chordMatch[0].length
-	
+
 	return true
 }
 
@@ -133,20 +135,20 @@ function parseDiagram(diagram) {
 				sp = String.fromCharCode(0xa0),					// non-breaking space
 				finger = String.fromCharCode(0x25cf),		// black circle
 				optional = String.fromCharCode(0x25cb)	// white circle
-		
-	let min = 99, // minimum used fret
-			max = 0,	// maximum used fret
-			fret, 		// fret number on which to place character
-			frets,		// whether to show the frets for a line (first and last lines should not)
-			char, 		// character to place on fret
-			nut='',		// the beginning of a line
-			line,			// a single line
-			lines=[] // the rendered lines
 
-	
+	let min = 99, 	// minimum used fret
+			max = 0,		// maximum used fret
+			fret, 			// fret number on which to place character
+			frets,			// whether to show the frets for a line (first and last lines should not)
+			char, 			// character to place on fret
+			nut = '',		// the beginning of a line
+			line,				// a single line
+			lines = [] 	// the rendered lines
+
+
 
 	// Remove wrappers and separators
-	diagram = diagram.replace(/[\[\]|]/g,'').replace(/[Oo]/g, '0')
+	diagram = diagram.replace(/[\[\]|]/g, '').replace(/[Oo]/g, '0')
 
 	// Split diagram (commas are used for frets beyond 9)
 	diagram = /,/.test(diagram) ? diagram.split(',') : diagram.match(/\(?[XxOo\d]\)?/g)
@@ -158,12 +160,12 @@ function parseDiagram(diagram) {
 	diagram = diagram.map(v => {
 
 		// get the fret number
-		fret = parseInt(v.replace(/[\(\)]/g,''))
+		fret = parseInt(v.replace(/[\(\)]/g, ''), 10)
 
 		// check for min and max
 		if (fret && fret < min) min = fret
 		if (fret && fret > max) max = fret
-		
+
 		// get the proper character
 		if (isNaN(fret)) char = 'x'
 		else if (!fret) char = sp
@@ -173,7 +175,7 @@ function parseDiagram(diagram) {
 		// return the full data
 		return {
 			fret: fret || 0,
-			char: char
+			'char': char,
 		}
 	})
 
@@ -190,13 +192,13 @@ function parseDiagram(diagram) {
 	}
 
 	// render each position of the diagram
-	diagram.forEach((o,idx) => {
-		frets = idx && (idx < (diagram.length -1))
+	diagram.forEach((o, idx) => {
+		frets = idx && (idx < (diagram.length - 1))
 		// initial space or x
 		line = o.char === 'x' ? 'x' : sp
 		// first fret of line
 		line += `${frets ? fr : sp}${nut}`
-		for (let i=min; i<=max; i++) {
+		for (let i = min; i <= max; i++) {
 			// character in position
 			line += i === o.fret ? o.char : `${sp}${str}`
 			// string and fret after
