@@ -28,7 +28,7 @@ rules:
   guard-for-in:           2
   handle-callback-err:    2
 
-  indent:                 [ 2, 2, { VariableDeclarator: { var: 2, let: 2, const: 3 }, SwitchCase: 1 } ]
+  indent:                 [ 2, "tab", { VariableDeclarator: { var: 2, let: 2, const: 3 }, SwitchCase: 1 } ]
 
   # key-spacing:            [ 2, { "align": "value" } ]
   keyword-spacing:        2
@@ -36,7 +36,7 @@ rules:
   max-depth:              [ 1, 6 ]
   max-nested-callbacks:   [ 1, 4 ]
   # string can exceed 80 chars, but should not overflow github website :)
-  max-len:                [ 2, 120, 1000 ]
+  max-len:                [ 2, 120, 2, { ignoreTrailingComments: true, ignoreRegExpLiterals: true, ignoreComments: true } ]
   new-cap:                2
   new-parens:             2
   # Postponed
@@ -118,7 +118,7 @@ rules:
   no-unreachable:         2
   no-unused-expressions:  2
   no-unused-vars:         2
-  no-use-before-define:   2
+  no-use-before-define:   0
   no-void:                2
   no-with:                2
   object-curly-spacing:   [ 2, always, { "objectsInObjects": true, "arraysInObjects": true } ]
