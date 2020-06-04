@@ -58,6 +58,8 @@ span.chord i.diagram.show {
 body {
 	padding:50px;
 	font-size:16pt;
+	max-width: 1900px;
+	margin: 0 auto;
 }
 #sandbox div,
 #sandbox textarea {
@@ -68,7 +70,18 @@ body {
 	box-sizing: border-box;
 	padding: 10px;
 }
-.clearfix:after {
+code {
+	background: #eee;
+	font-size: 75%;
+}
+pre {
+	background: #eee;
+	padding: 10px 10px 0;
+	max-width: 100%:
+	overflow: scroll;
+	display: inline-block;
+}
+.clearfix:after, pre:after {
 	content: "";
 	display: table;
 	clear: both;
@@ -83,11 +96,33 @@ body {
 <p>This markdown-it plugin makes it easy to add chords to your lyric sheets by simply adding the chords, in brackets, wherever they appear in the context of the lyrics. Chords can be anywhere in a line of text, even in the middle of a word. You can also add chord diagrams that will display like a guitar fretboard.</p>
 <p><strong>The chords will not be rendered properly on <a href="https://github.com/dnotes/markdown-it-chords">Github</a> or <a href="https://npmjs.com/package/markdown-it-chords">NPM</a>.</strong> Please see <a href="https://dnotes.github.io/markdown-it-chords/">the documentation site</a>.</p>
 <h2>Installation and Usage</h2>
+<h3>Node</h3>
 <p><code>npm i markdown-it-chords</code> or <code>yarn add markdown-it-chords</code></p>
 <pre><code>var md = require('markdown-it')()
 md.use(require('markdown-it-chords'))
 md.render('[C]La [F]la [G]la [C]la')
 </code></pre>
+<p>see <a href="https://github.com/dnotes/markdown-it-chords/blob/master/readme.js">readme.js</a>
+for an example of usage in NodeJS.</p>
+<h3>Browser</h3>
+<ol>
+<li>
+<p>Include the file in the document's head, and initialize the markdown-it object:</p>
+<pre><code>&lt;script src=&quot;[cdnjs.com link for markdown-it]&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;[cdnjs.com link for markdown-it-chords]&quot;&gt;&lt;/script&gt;
+&lt;script&gt;const md = window.markdown-it('commonmark').use(window.markdownItChords)&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>Do what you want in the body of the document:</p>
+<pre><code>$('textarea#markdown').keyup(function() {
+    var text = $(this).val()
+    $('#preview').html(md.render(text))
+})
+</code></pre>
+</li>
+</ol>
+<p>The <a href="https://dnotes.github.io/markdown-it-chords/">documentation site</a> has a markdown sandbox which uses this plugin in the browser.</p>
 <h2>Example and Syntax</h2>
 
 

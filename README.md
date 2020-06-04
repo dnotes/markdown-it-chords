@@ -13,6 +13,8 @@ This markdown-it plugin makes it easy to add chords to your lyric sheets by simp
 
 ## Installation and Usage
 
+### Node
+
 `npm i markdown-it-chords` or `yarn add markdown-it-chords`
 
 ```
@@ -20,6 +22,29 @@ var md = require('markdown-it')()
 md.use(require('markdown-it-chords'))
 md.render('[C]La [F]la [G]la [C]la')
 ```
+
+see [readme.js](https://github.com/dnotes/markdown-it-chords/blob/master/readme.js)
+for an example of usage in NodeJS.
+
+### Browser
+
+1.  Include the file in the document's head, and initialize the markdown-it object:
+    ```
+    <script src="[cdnjs.com link for markdown-it]"></script>
+    <script src="[cdnjs.com link for markdown-it-chords]"></script>
+    <script>const md = window.markdown-it('commonmark').use(window.markdownItChords)</script>
+    ```
+
+2. Do what you want in the body of the document:
+
+    ```
+    $('textarea#markdown').keyup(function() {
+        var text = $(this).val()
+        $('#preview').html(md.render(text))
+    })
+    ```
+
+The [documentation site][Docs] has a markdown sandbox which uses this plugin in the browser.
 
 ## Example and Syntax
 
