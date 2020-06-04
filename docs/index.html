@@ -1,11 +1,25 @@
-
 <html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>markdown-it-chords: Write your lyric sheets in markdown</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/11.0.0/markdown-it.min.js" integrity="sha256-3mv+NUxFuBg26MtcnuN2X37WUxuGunWCCiG2YCSBjNc=" crossorigin="anonymous"></script>
+	<script src="../dist/markdown-it-chords.min.js"></script>
+	<script>
+		const md = window.markdownit().use(window.markdownItChords)
+		$(function() {
+			$('textarea#markdown').keyup(function() {
+				var text = $(this).val()
+				$('#preview').html(md.render(text))
+			})
+			$('#preview').html()
+		})
+	</script>
+</head>
 <style>
-body {
-	padding:50px;
-	font-size:16pt;
-}
 span.chord {
 	padding-top: 4px;
 	display: inline-block;
@@ -41,6 +55,24 @@ span.chord i.diagram.show {
 	display: inline-block;
 }
 
+body {
+	padding:50px;
+	font-size:16pt;
+}
+#sandbox div,
+#sandbox textarea {
+	width: 50%;
+	resize: none;
+	overflow: scroll;
+	float: left;
+	box-sizing: border-box;
+	padding: 10px;
+}
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 </style>
 
 <body>
@@ -49,7 +81,7 @@ span.chord i.diagram.show {
 <a href="https://coveralls.io/github/dnotes/markdown-it-chords?branch=master"><img src="https://coveralls.io/repos/github/dnotes/markdown-it-chords/badge.svg?branch=master" alt="Coverage Status" /></a></p>
 <h2>Chords for lyric sheets, in Markdown</h2>
 <p>This markdown-it plugin makes it easy to add chords to your lyric sheets by simply adding the chords, in brackets, wherever they appear in the context of the lyrics. Chords can be anywhere in a line of text, even in the middle of a word. You can also add chord diagrams that will display like a guitar fretboard.</p>
-<p><strong>This README.md file is not rendered properly on Github.</strong> Please see <a href="https://dnotes.github.io/markdown-it-chords/">the documentations site</a>.</p>
+<p><strong>The chords will not be rendered properly on <a href="https://github.com/dnotes/markdown-it-chords">Github</a> or <a href="https://npmjs.com/package/markdown-it-chords">NPM</a>.</strong> Please see <a href="https://dnotes.github.io/markdown-it-chords/">the documentation site</a>.</p>
 <h2>Installation and Usage</h2>
 <p><code>npm i markdown-it-chords</code> or <code>yarn add markdown-it-chords</code></p>
 <pre><code>var md = require('markdown-it')()
@@ -57,7 +89,21 @@ md.use(require('markdown-it-chords'))
 md.render('[C]La [F]la [G]la [C]la')
 </code></pre>
 <h2>Example and Syntax</h2>
-<p><span class="chord"><span class="inner"><i class="name">C</i></span></span>Do, a deer, a female deer<br />
+
+
+<div id="sandbox" class="clearfix">
+	<textarea name="markdown" id="markdown" rows="30">[C]Do, a deer, a female deer\
+[Dm]Ray, a drop of golden sun\
+[Eb]May, a possi[D#]bility\
+[D/F#]Fee, the price you pay to run
+
+*(half-time, bossanova guitar)*\
+[CΔ913]So, — I'd [C6]like to see Bra[Fmaj9]zil . . . . .[F6(9)]\
+[E-7b13]La, — I'd [CM7sus2]really like to [E9]go . . .[E7b9]\
+[AmΔ7/9]Tea, — I [A-7]sit and sip so [D#ø7]slow . . .[D#o7]\
+That will [Dm7|x57565]bring — [F6(9)|x87788]us —— [Em7|x79787]back — [G13|x,10,x,12,12,12]to —— [8xx987]Do . . . .[8,(10),10,9,10,x]
+</textarea>
+	<div id="preview"><p><span class="chord"><span class="inner"><i class="name">C</i></span></span>Do, a deer, a female deer<br />
 <span class="chord"><span class="inner"><i class="name">Dm</i></span></span>Ray, a drop of golden sun<br />
 <span class="chord"><span class="inner"><i class="name">E♭</i></span></span>May, a possi<span class="chord"><span class="inner"><i class="name">D♯</i></span></span>bility<br />
 <span class="chord"><span class="inner"><i class="name">D/F♯</i></span></span>Fee, the price you pay to run</p>
@@ -66,6 +112,9 @@ md.render('[C]La [F]la [G]la [C]la')
 <span class="chord"><span class="inner"><i class="name">E‑<sup>7</sup><sup></sup></i></span></span>La, — I'd <span class="chord"><span class="inner"><i class="name">CM<sup>7</sup><sup>sus2</sup></i></span></span>really like to <span class="chord"><span class="inner"><i class="name">E<sup>9</sup></i></span></span>go . . .<span class="chord"><span class="inner"><i class="name">E<sup>7</sup><sup>♭9</sup></i></span></span><br />
 <span class="chord"><span class="inner"><i class="name">Am<sup>Δ7/9</sup></i></span></span>Tea, — I <span class="chord"><span class="inner"><i class="name">A‑<sup>7</sup></i></span></span>sit and sip so <span class="chord"><span class="inner"><i class="name">D♯<sup>ø</sup><sup>7</sup></i></span></span>slow . . .<span class="chord"><span class="inner"><i class="name">D♯°<sup>7</sup></i></span></span><br />
 That will <span class="chord"><span class="inner"><i class="name">Dm<sup>7</sup></i><i class="diagram"> 5<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>bring — <span class="chord"><span class="inner"><i class="name">F<sup>6</sup><sup>(9)</sup></i><i class="diagram"> 7<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>us —— <span class="chord"><span class="inner"><i class="name">Em<sup>7</sup></i><i class="diagram"> 7<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>back — <span class="chord"><span class="inner"><i class="name">G<sup>13</sup></i><i class="diagram"> 10<br />  ̶ ̶ ̶ ̶ ̶● ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>to —— <span class="chord diagram"><span class="inner"><i class="diagram"> 7<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /></i></span></span>Do . . . .<span class="chord diagram"><span class="inner"><i class="diagram"> 8<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶○|̶<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /></i></span></span></p>
+</div>
+</div>
+
 <h3>Chords</h3>
 <p>Chords are written inside brackets. The parts of a chord are as follows:</p>
 <ol>
