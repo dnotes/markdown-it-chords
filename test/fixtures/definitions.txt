@@ -50,3 +50,9 @@ Don't capo if a chord diagram is within the first four frets
 <span class="chord diagram"><span class="inner"><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶● ̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br /> | ̶|̶ ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br />x  ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span></p>
 .
 
+Bracketed statements that are not chords
+.
+[example]
+.
+<p>[example]</p>
+.

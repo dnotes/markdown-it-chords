@@ -23,6 +23,8 @@ function chords(state, silent) {
 
 	tail = state.src.slice(pos)
 
+	// this should never happen I think?
+	/* istanbul ignore if */
 	if (!tail.length) return false
 
 	chordMatch = tail.match(CHORD_TEST)
@@ -39,6 +41,7 @@ function chords(state, silent) {
 	if (!chord && !diagram) return false
 	classes = chord ? 'chord' : 'chord diagram'
 
+	/* istanbul ignore else */
 	if (!silent) {
 		token = state.push('chord_open', 'span', 1)
 		token.attrs = [['class',classes]]
