@@ -8,7 +8,7 @@
     "coverage": "yarn test && nyc report -r text-lcov | coveralls",
     "docs": "./readme.js",
     "lint": "eslint .",
-    "pub": "yarn lint && yarn test && make build && make publish",
+    "pub": "echo deprecated, use make publish",
     "test": "nyc --check-coverage --lines 100 mocha"
   },
   "keywords": [
