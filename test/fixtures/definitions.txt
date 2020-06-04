@@ -36,18 +36,22 @@ Diagrams
 .
 That will [Dm7|x57565]bring — [F6(9)|x87788]us —— [Em7|x79787]back — [G13|x,10,x,12,12,12]to —— [8xx987]Do . . . .[8,(10),10,9,10,x]
 .
-<p>That will <span class="chord"><span class="inner"><i class="name">Dm<sup>7</sup></i><i class="diagram"> 5<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>bring — <span class="chord"><span class="inner"><i class="name">F<sup>6</sup><sup>(9)</sup></i><i class="diagram"> 7<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>us —— <span class="chord"><span class="inner"><i class="name">Em<sup>7</sup></i><i class="diagram"> 7<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>back — <span class="chord"><span class="inner"><i class="name">G<sup>13</sup></i><i class="diagram"> 10<br />  ̶ ̶ ̶ ̶ ̶● ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>to —— <span class="chord diagram"><span class="inner"><i class="diagram"> 7<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /></i></span></span>Do . . . .<span class="chord diagram"><span class="inner"><i class="diagram"> 8<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶○|̶<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /></i></span></span></p>
+<p>That will <span class="chord"><span class="inner"><i class="name">Dm<sup>7</sup></i><i class="diagram"> 5fr<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>bring — <span class="chord"><span class="inner"><i class="name">F<sup>6</sup><sup>(9)</sup></i><i class="diagram"> 7fr<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>us —— <span class="chord"><span class="inner"><i class="name">Em<sup>7</sup></i><i class="diagram"> 7fr<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>back — <span class="chord"><span class="inner"><i class="name">G<sup>13</sup></i><i class="diagram"> 10fr<br />  ̶ ̶ ̶ ̶ ̶● ̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br />x‖̶ ̶|̶ ̶|̶ ̶|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>to —— <span class="chord diagram"><span class="inner"><i class="diagram"> 7fr<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br />x‖̶ ̶|̶ ̶|̶ ̶|̶<br />x‖̶ ̶|̶ ̶|̶ ̶|̶<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /></i></span></span>Do . . . .<span class="chord diagram"><span class="inner"><i class="diagram"> 8fr<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶ ̶|̶ ̶|̶○|̶<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /></i></span></span></p>
 .
 
 EDGE CASES
 
 Don't capo if a chord diagram is within the first four frets
 .
-[(3)32010]\
-[x43444]
+[(3)32010]Cmaj (`[(3)32010]`) ,
+[x43444]D♭<sup>9</sup> (`[x43444]`) ,
+[x54555]D<sup>9</sup> (`[x54555]`) ,
+[8,(10),10,9,10,x]C6 (`[8,(10),10,9,10,x]`)
 .
-<p><span class="chord diagram"><span class="inner"><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶<br /> |●|̶ ̶|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶<br /> | ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶●|̶<br />   ̶ ̶ ̶ ̶○ ̶<br /></i></span></span><br />
-<span class="chord diagram"><span class="inner"><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶● ̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br /> | ̶|̶ ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br />x  ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span></p>
+<p><span class="chord diagram"><span class="inner"><i class="diagram">  ̵ ̶ ̶ ̶ ̶ ̶ ̶<br /> ‖̵●|̶ ̶|̶ ̶|̶<br /> ‖̵ ̶|̶ ̶|̶ ̶|̶<br /> ‖̵ ̶|̶●|̶ ̶|̶<br /> ‖̵ ̶|̶ ̶|̶●|̶<br />  ̵ ̶ ̶ ̶ ̶○ ̶<br /></i></span></span>Cmaj (<code>[(3)32010]</code>) ,
+<span class="chord diagram"><span class="inner"><i class="diagram">  ̵ ̶ ̶ ̶ ̶ ̶ ̶● ̶<br /> ‖̵ ̶|̶ ̶|̶ ̶|̶●|̶<br /> ‖̵ ̶|̶ ̶|̶ ̶|̶●|̶<br /> ‖̵ ̶|̶ ̶|̶●|̶ ̶|̶<br /> ‖̵ ̶|̶ ̶|̶ ̶|̶●|̶<br />x ̵ ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>D♭<sup>9</sup> (<code>[x43444]</code>) ,
+<span class="chord diagram"><span class="inner"><i class="diagram"> 4fr<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶●|̶ ̶|̶ ̶|̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>D<sup>9</sup> (<code>[x54555]</code>) ,
+<span class="chord diagram"><span class="inner"><i class="diagram"> 8fr<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶ ̶|̶●|̶ ̶|̶<br /> ‖̶ ̶|̶ ̶|̶●|̶<br /> ‖̶ ̶|̶ ̶|̶○|̶<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /></i></span></span>C6 (<code>[8,(10),10,9,10,x]</code>)</p>
 .
 
 Bracketed statements that are not chords
