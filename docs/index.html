@@ -49,6 +49,7 @@ span.chord i.diagram.show {
 <a href="https://coveralls.io/github/dnotes/markdown-it-chords?branch=master"><img src="https://coveralls.io/repos/github/dnotes/markdown-it-chords/badge.svg?branch=master" alt="Coverage Status" /></a></p>
 <h2>Chords for lyric sheets, in Markdown</h2>
 <p>This markdown-it plugin makes it easy to add chords to your lyric sheets by simply adding the chords, in brackets, wherever they appear in the context of the lyrics. Chords can be anywhere in a line of text, even in the middle of a word. You can also add chord diagrams that will display like a guitar fretboard.</p>
+<p><strong>This README.md file is not rendered properly on Github.</strong> Please see <a href="https://dnotes.github.io/markdown-it-chords/">the documentations site</a>.</p>
 <h2>Installation and Usage</h2>
 <p><code>npm i markdown-it-chords</code> or <code>yarn add markdown-it-chords</code></p>
 <pre><code>var md = require('markdown-it')()
@@ -65,6 +66,66 @@ md.render('[C]La [F]la [G]la [C]la')
 <span class="chord"><span class="inner"><i class="name">E‑<sup>7</sup><sup></sup></i></span></span>La, — I'd <span class="chord"><span class="inner"><i class="name">CM<sup>7</sup><sup>sus2</sup></i></span></span>really like to <span class="chord"><span class="inner"><i class="name">E<sup>9</sup></i></span></span>go . . .<span class="chord"><span class="inner"><i class="name">E<sup>7</sup><sup>♭9</sup></i></span></span><br />
 <span class="chord"><span class="inner"><i class="name">Am<sup>Δ7/9</sup></i></span></span>Tea, — I <span class="chord"><span class="inner"><i class="name">A‑<sup>7</sup></i></span></span>sit and sip so <span class="chord"><span class="inner"><i class="name">D♯<sup>ø</sup><sup>7</sup></i></span></span>slow . . .<span class="chord"><span class="inner"><i class="name">D♯°<sup>7</sup></i></span></span><br />
 That will <span class="chord"><span class="inner"><i class="name">Dm<sup>7</sup></i><i class="diagram"> 5<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>bring — <span class="chord"><span class="inner"><i class="name">F<sup>6</sup><sup>(9)</sup></i><i class="diagram"> 7<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>us —— <span class="chord"><span class="inner"><i class="name">Em<sup>7</sup></i><i class="diagram"> 7<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>back — <span class="chord"><span class="inner"><i class="name">G<sup>13</sup></i><i class="diagram"> 10<br />  ̶ ̶ ̶ ̶ ̶● ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>to —— <span class="chord diagram"><span class="inner"><i class="diagram"> 7<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br />x|̶ ̶|̶ ̶|̶ ̶|̶<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /></i></span></span>Do . . . .<span class="chord diagram"><span class="inner"><i class="diagram"> 8<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶○|̶<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /></i></span></span></p>
+<h3>Chords</h3>
+<p>Chords are written inside brackets. The parts of a chord are as follows:</p>
+<ol>
+<li>
+<p>The one-letter name of the root note with an optional sharp or flat. The chord root must be capitalized. Sharps and flats can be indicated as the unicode sharp (<code>♯</code>) and flat (<code>♭</code>) symbols, or by the more common hash (#) and lowercase B (b) symbols.<br />
+<span class="chord"><span class="inner"><i class="name">C</i></span></span><code>[C]</code> ,
+<span class="chord"><span class="inner"><i class="name">F♯</i></span></span><code>[F#]</code> ,
+<span class="chord"><span class="inner"><i class="name">B♭</i></span></span><code>[Bb]</code></p>
+</li>
+<li>
+<p>(optional) Color and/or number indicators. Recognized color indications include <code>M</code>, <code>Δ</code>, <code>maj</code>, <code>m</code>, <code>min</code>, <code>-</code>, <code>dim</code>, <code>o</code>, <code>°</code>, <code>ø</code>, <code>aug</code>, <code>+</code>, <code>sus</code>, and <code>add</code>. The first letter of abbreviations may be capitalized.<br />
+<span class="chord"><span class="inner"><i class="name">Dmaj</i></span></span><code>[Dmaj]</code> ,
+<span class="chord"><span class="inner"><i class="name">DMaj<sup>7</sup></i></span></span><code>[DMaj7]</code> ,
+<span class="chord"><span class="inner"><i class="name">DΔ<sup>7</sup></i></span></span><code>[DΔ7]</code> ,
+<span class="chord"><span class="inner"><i class="name">D<sup>7</sup></i></span></span><code>[D7]</code> ,
+<span class="chord"><span class="inner"><i class="name">Dm</i></span></span><code>[Dm]</code> ,
+<span class="chord"><span class="inner"><i class="name">Dmin</i></span></span><code>[Dmin]</code> ,
+<span class="chord"><span class="inner"><i class="name">D‑<sup>7</sup></i></span></span><code>[D-7]</code> ,
+<span class="chord"><span class="inner"><i class="name">Ddim</i></span></span><code>[Ddim]</code> ,
+<span class="chord"><span class="inner"><i class="name">D<sup>ø</sup></i></span></span><code>[Dø]</code> ,
+<span class="chord"><span class="inner"><i class="name">D°<sup>7</sup></i></span></span><code>[Do7]</code> ,
+<span class="chord"><span class="inner"><i class="name">DAug</i></span></span><code>[DAug]</code> ,
+<span class="chord"><span class="inner"><i class="name">D+</i></span></span><code>[D+]</code> ,
+<span class="chord"><span class="inner"><i class="name">Dsus<sup>4</sup></i></span></span><code>[Dsus4]</code> ,
+<span class="chord"><span class="inner"><i class="name">Dadd<sup>9</sup></i></span></span><code>[Dadd9]</code></p>
+</li>
+<li>
+<p>(optional) Extended color for the chord. Recognized extended chord indications include <code>-</code>, <code>+</code>, <code>Δ</code>, <code>b</code>, <code>#</code>, <code>♭</code>, <code>♯</code>, <code>maj</code>, <code>min</code>, and <code>sus</code>. Extensions may be separated from each other by a comma (<code>,♭9</code>) or slash (<code>/♭9</code>), or may be placed in parentheses (<code>(♭9)</code>).<br />
+<span class="chord"><span class="inner"><i class="name">CΔ<sup>9</sup><sup>(13)</sup></i></span></span><code>[CΔ9(13)]</code> ,
+<span class="chord"><span class="inner"><i class="name">Fmaj<sup>9</sup></i></span></span><code>[Fmaj9]</code> ,
+<span class="chord"><span class="inner"><i class="name">F<sup>6</sup><sup>,9</sup></i></span></span><code>[F6,9]</code> ,
+<span class="chord"><span class="inner"><i class="name">E‑<sup>7</sup><sup></sup></i></span></span><code>[E-7/b13]</code> ,
+<span class="chord"><span class="inner"><i class="name">CM<sup>7</sup><sup>sus2</sup></i></span></span><code>[CM7sus2]</code> ,
+<span class="chord"><span class="inner"><i class="name">E<sup>7</sup><sup>♭9</sup></i></span></span><code>[E7b9]</code> ,
+<span class="chord"><span class="inner"><i class="name">Am<sup>Δ7/9</sup></i></span></span><code>[AmΔ7/9]</code> ,</p>
+</li>
+<li>
+<p>(optional) Bass note for the chord. The bass note is separated from the rest of the chord by a slash (<code>/</code>).<br />
+<span class="chord"><span class="inner"><i class="name">D/F♯</i></span></span><code>[D/F#]</code> ,
+<span class="chord"><span class="inner"><i class="name">Am<sup>7</sup>/C</i></span></span><code>[Am7/C]</code></p>
+</li>
+<li>
+<p>(optional) Chord diagram. The chord diagram is separated from the rest of the chord by a vertical bar (<code>|</code>). See below for syntax.</p>
+</li>
+</ol>
+<h3>Diagrams</h3>
+<p>Chord diagrams are pictures of where the fingers go on the neck of a guitar or other stringed instrument. In markdown, they are written with one place for each string, consiting of one of the following:</p>
+<ul>
+<li>A fret number for a finger placement</li>
+<li>A fret number in parentheses for an optional finger placement</li>
+<li><code>0</code>, <code>O</code>, or <code>o</code> for an open string</li>
+<li><code>X</code> or <code>x</code> for a string that is not played</li>
+</ul>
+<p>Diagrams can be attached to a chord (<span class="chord"><span class="inner"><i class="name">C</i><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶<br /> |●|̶ ̶|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶<br /> | ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶●|̶<br />   ̶ ̶ ̶ ̶○ ̶<br /></i></span></span><code>[C|(3)32010]</code>) or may stand alone (<span class="chord diagram"><span class="inner"><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶<br /> |●|̶ ̶|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶<br /> | ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶●|̶<br />   ̶ ̶ ̶ ̶○ ̶<br /></i></span></span><code>[(3)32010]</code>). Usually a chord is rendered within a <code>&lt;span class=&quot;chord&quot;&gt;</code> element, but a standalone diagram will have an additional class: <code>&lt;span class=&quot;chord diagram&quot;&gt;</code>. This eases some use cases like having chord diagrams that appear when hovering over a chord name, as is the case with the C chord above.</p>
+<p>Chord diagrams for frets beyond the 9th must be written with each fret separated by a comma. Diagrams extending beyond the 4th fret are calculated from a numbered fret.<br />
+<span class="chord diagram"><span class="inner"><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶<br /> |●|̶ ̶|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶<br /> | ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶●|̶<br />   ̶ ̶ ̶ ̶○ ̶<br /></i></span></span>Cmaj (<code>[(3)32010]</code>) ,
+<span class="chord diagram"><span class="inner"><i class="diagram">   ̶ ̶ ̶ ̶ ̶ ̶● ̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br /> | ̶|̶ ̶|̶●|̶ ̶|̶<br /> | ̶|̶ ̶|̶ ̶|̶●|̶<br />x  ̶ ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>D♭<sup>9</sup> (<code>[x43444]</code>) ,
+<span class="chord diagram"><span class="inner"><i class="diagram"> 4<br />  ̶ ̶ ̶● ̶ ̶ ̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶●|̶ ̶|̶ ̶|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /></i></span></span>D<sup>9</sup> (<code>[x54555]</code>) ,
+<span class="chord diagram"><span class="inner"><i class="diagram"> 8<br />x ̶ ̶ ̶ ̶ ̶ ̶ ̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶●|̶ ̶|̶<br /> |̶ ̶|̶ ̶|̶●|̶<br /> |̶ ̶|̶ ̶|̶○|̶<br />  ̶● ̶ ̶ ̶ ̶ ̶<br /></i></span></span>C6 (<code>[8,(10),10,9,10,x]</code>)</p>
+<p>Chord diagrams are, fundamentally, plain text written in Unicode, which means that they can be easily reversed by adding <code>dir=&quot;rtl&quot;</code> to the proper element, which may be useful for left-handed guitar players.</p>
 
 
 </body>
