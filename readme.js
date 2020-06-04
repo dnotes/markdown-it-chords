@@ -19,7 +19,7 @@ let output = `<html>
 	<title>markdown-it-chords: Write your lyric sheets in markdown</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/11.0.0/markdown-it.min.js" integrity="sha256-3mv+NUxFuBg26MtcnuN2X37WUxuGunWCCiG2YCSBjNc=" crossorigin="anonymous"></script>
-	<script src="../dist/markdown-it-chords.min.js"></script>
+	<script src="markdown-it-chords.min.js"></script>
 	<script>
 		const md = window.markdownit().use(window.markdownItChords)
 		$(function() {
