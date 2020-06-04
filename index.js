@@ -174,12 +174,13 @@ function parseDiagram(diagram) {
 	})
 
 	// don't capo if a chord is within the first four frets
-	if (max <= 4) min = 0
+	if (max <= 4) min = 1
 	// make sure there are at least three frets
 	if (max - min < 2) max++
 
 	// render fret number and strings, if needed
-	if (min) {
+	/* istanbul ignore else */
+	if (min > 1) {
 		lines.push(`${sp}${min}`)
 		nut = str
 	}
