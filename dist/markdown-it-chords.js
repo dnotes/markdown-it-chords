@@ -5,7 +5,7 @@
 const CHORD_TEST = /^\[[A-G][b#♭♯]*(?:M|Δ|[Mm]aj|m|[Mm]in|-|–|[Dd]im|o|°|ø|[Aa]ug|\+|[Ss]usp?|[Aa]dd)?(?:1?[\d])?(?:(?:[\(\/,]?(?:[-–+Δob#♭♯]|[Mm]aj|[Mm]in|[Ss]usp?)?[0-9]+\)?)*)?(?:\/[A-G][b#♭♯]*)?(?:\|[XxOo\d,\(\)]{3,})?\]/
 //                        note   half  color                                                         num         extended                                                 bass           diagram
 const CHORD_REGEX = /^\[([A-G])([♭♯]*)(M|Δ|[Mm]aj|m|[Mm]in|‑|[Dd]im|°|ø|[Aa]ug|\+|[Ss]usp?|[Aa]dd)?(1?[\d])?((?:[\(\/,]?(?:[‑+Δ°♭♯]|[Mm]aj|[Mm]in|[Ss]usp?)?[0-9]+\)?)*)?(\/[A-G][♭♯]*)?(\|[XxOo\d,\(\)]{3,})?\]/
-const EXTENDED_REGEX = /(?:[\(\/,1]*(?:[‑+Δ°♭♯]|[Mm]aj|[Mm]in|[Ss]usp?)?[02-9]+\)?)*/
+const EXTENDED_REGEX = /(?:[\(\/,1]*(?:[‑+Δ°♭♯]|[Mm]aj|[Mm]in|[Ss]usp?)?[0-9]+\)?)*/
 const DIAGRAM_REGEX = /^\[(?:[XxOo\d,\(\)]{3,})\]/
 
 function chords(state, silent) {
