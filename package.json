@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-chords",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add support for lyric sheet chords in markdown.",
   "main": "index.js",
   "scripts": {
