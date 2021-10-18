@@ -32,7 +32,7 @@ for an example of usage in NodeJS.
     ```
     <script src="[cdnjs.com link for markdown-it]"></script>
     <script src="[cdnjs.com link for markdown-it-chords]"></script>
-    <script>const md = window.markdown-it('commonmark').use(window.markdownItChords)</script>
+    <script>const md = window.markdownit('commonmark').use(window.markdownItChords)</script>
     ```
 
 2. Do what you want in the body of the document:
